@@ -41,6 +41,13 @@
   --color-field: var(--field);
   --shadow-card: var(--shadow-card);
   --shadow-soft: var(--shadow-soft);
+  --animate-spin-smooth: spin-smooth 1.1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes spin-smooth {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 :root {
