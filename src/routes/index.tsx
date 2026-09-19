@@ -75,14 +75,14 @@ function LoginPage() {
       <Backdrop />
 
       <header className="fixed inset-x-0 top-0 z-20 border-b border-glass-border bg-glass/70 backdrop-blur-xl">
-        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-          <div className="flex min-w-0 items-center gap-3">
-            <MintLoomMark className="h-6 w-6 shrink-0" />
-            <span className="truncate text-base font-bold tracking-tight">MintLoom</span>
+        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3">
+          <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <MintLoomMark className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
+            <span className="truncate text-[15px] font-bold tracking-tight sm:text-base">MintLoom</span>
             <span className="hidden h-4 w-px bg-border sm:block" />
             <span className="hidden truncate text-sm text-muted-foreground sm:block">Admin Panel</span>
           </div>
-          <div className="flex shrink-0 items-center gap-4">
+          <div className="flex shrink-0 items-center gap-2.5 sm:gap-4">
             <nav className="hidden items-center gap-2 text-sm text-muted-foreground lg:flex">
               <span>Build</span>
               <span className="text-gold">•</span>
@@ -117,7 +117,7 @@ function LoginPage() {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-5 pb-12 pt-28 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-32">
+      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-4 pb-10 pt-24 sm:px-5 sm:pt-28 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-32">
         <section className="hidden max-w-xs flex-col lg:flex">
           <span className="mb-6 block h-px w-8 bg-gold" />
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight">
@@ -152,7 +152,7 @@ function LoginPage() {
           </div>
         </section>
 
-        <section className="relative w-full overflow-hidden rounded-[26px] border border-glass-border bg-glass p-6 shadow-card backdrop-blur-2xl sm:p-8">
+        <section className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[22px] border border-glass-border bg-glass p-5 shadow-card backdrop-blur-2xl sm:max-w-[480px] sm:rounded-[26px] sm:p-8">
           <svg
             className="pointer-events-none absolute inset-0 h-full w-full"
             viewBox="0 0 480 640"
@@ -187,8 +187,8 @@ function LoginPage() {
 
           <div className="relative">
           <div className="flex flex-col items-center text-center">
-            <MintLoomMark className="h-11 w-11" />
-            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight">MintLoom</h2>
+            <MintLoomMark className="h-10 w-10 sm:h-11 sm:w-11" />
+            <h2 className="mt-2.5 text-xl font-extrabold tracking-tight sm:text-2xl">MintLoom</h2>
             <p className="mt-0.5 text-sm text-muted-foreground">Admin Panel</p>
           </div>
 
