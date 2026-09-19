@@ -8,7 +8,6 @@ import {
   EyeIcon,
   EyeOffIcon,
   GearIcon,
-  GoldRing,
   LockIcon,
   MailIcon,
   MoonIcon,
@@ -75,11 +74,11 @@ function LoginPage() {
     <div className="relative min-h-screen bg-background">
       <Backdrop />
 
-      <header className="relative z-10 px-4 pt-4 sm:px-6">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-2xl border border-glass-border bg-glass px-4 py-3 backdrop-blur-xl sm:px-6">
+      <header className="fixed inset-x-0 top-0 z-20 border-b border-glass-border bg-glass/70 backdrop-blur-xl">
+        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-2 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
-            <MintLoomMark className="h-7 w-7 shrink-0" />
-            <span className="truncate text-lg font-bold tracking-tight">MintLoom</span>
+            <MintLoomMark className="h-6 w-6 shrink-0" />
+            <span className="truncate text-base font-bold tracking-tight">MintLoom</span>
             <span className="hidden h-4 w-px bg-border sm:block" />
             <span className="hidden truncate text-sm text-muted-foreground sm:block">Admin Panel</span>
           </div>
@@ -118,7 +117,7 @@ function LoginPage() {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-5 py-12 lg:grid-cols-[1fr_minmax(0,560px)_1fr] lg:gap-6 lg:py-20">
+      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-5 pb-12 pt-24 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-28">
         <section className="hidden max-w-xs flex-col lg:flex">
           <span className="mb-6 block h-px w-8 bg-gold" />
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight">
@@ -153,25 +152,58 @@ function LoginPage() {
           </div>
         </section>
 
-        <section className="w-full rounded-[26px] border border-glass-border bg-glass p-7 shadow-card backdrop-blur-2xl sm:p-10">
+        <section className="relative w-full overflow-hidden rounded-[26px] border border-glass-border bg-glass p-6 shadow-card backdrop-blur-2xl sm:p-8">
+          <svg
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 480 640"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <path
+              d="M-60 120C60 60 140 180 300 140S460 20 560 60"
+              fill="none"
+              stroke="var(--gold)"
+              strokeOpacity="0.22"
+              strokeWidth="1"
+            />
+            <path
+              d="M-60 560C80 500 200 640 360 590S520 470 580 520"
+              fill="none"
+              stroke="var(--gold)"
+              strokeOpacity="0.16"
+              strokeWidth="1"
+            />
+            <circle cx="430" cy="80" r="70" fill="none" stroke="var(--gold)" strokeOpacity="0.18" strokeWidth="1" />
+            <circle cx="40" cy="600" r="90" fill="var(--muted)" fillOpacity="0.35" />
+            <g fill="var(--gold)" fillOpacity="0.3">
+              {Array.from({ length: 3 }).flatMap((_, r) =>
+                Array.from({ length: 3 }).map((_, c) => (
+                  <circle key={`cd-${r}-${c}`} cx={400 + c * 12} cy={560 + r * 12} r="1.2" />
+                )),
+              )}
+            </g>
+          </svg>
+          <span className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+
+          <div className="relative">
           <div className="flex flex-col items-center text-center">
-            <MintLoomMark className="h-14 w-14" />
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">MintLoom</h2>
-            <p className="mt-1 text-[15px] text-muted-foreground">Admin Panel</p>
+            <MintLoomMark className="h-11 w-11" />
+            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight">MintLoom</h2>
+            <p className="mt-0.5 text-sm text-muted-foreground">Admin Panel</p>
           </div>
 
-          <div className="mt-6 flex flex-col items-center">
+          <div className="mt-4 flex flex-col items-center">
             <div className="flex w-full items-center gap-4">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/70" />
-              <LockIcon className="h-4 w-4 text-foreground/70" />
+              <LockIcon className="h-3.5 w-3.5 text-foreground/70" />
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/70" />
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">Sign in to continue</p>
+            <p className="mt-1.5 text-[13px] text-muted-foreground">Sign in to continue</p>
           </div>
 
-          <form onSubmit={submit} className="mt-6 space-y-3.5" noValidate>
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-5 py-3.5 transition-colors focus-within:border-gold">
-              <MailIcon className="h-5 w-5 shrink-0 text-foreground/70" />
+          <form onSubmit={submit} className="mt-4 space-y-3" noValidate>
+            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
+              <MailIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
               <input
                 type="email"
                 value={email}
@@ -179,12 +211,12 @@ function LoginPage() {
                 placeholder="Email address"
                 autoComplete="email"
                 maxLength={255}
-                className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
+                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
             </div>
 
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-5 py-3.5 transition-colors focus-within:border-gold">
-              <LockIcon className="h-5 w-5 shrink-0 text-foreground/70" />
+            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
+              <LockIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
@@ -192,7 +224,7 @@ function LoginPage() {
                 placeholder="Password"
                 autoComplete="current-password"
                 maxLength={128}
-                className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
+                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
               <button
                 type="button"
@@ -208,7 +240,7 @@ function LoginPage() {
               <button
                 type="button"
                 onClick={() => setRemember((v) => !v)}
-                className="flex items-center gap-2.5 text-sm text-foreground/80"
+                className="flex items-center gap-2.5 text-[13px] text-foreground/80"
                 role="checkbox"
                 aria-checked={remember}
               >
@@ -234,7 +266,7 @@ function LoginPage() {
                     message: "Password recovery isn't connected yet. Contact your administrator.",
                   })
                 }
-                className="text-sm font-medium text-gold"
+                className="text-[13px] font-medium text-gold"
               >
                 Forgot password?
               </button>
@@ -243,14 +275,14 @@ function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex h-[54px] w-full items-center justify-center gap-3 rounded-full bg-navy text-[15px] font-semibold text-navy-foreground shadow-soft transition-opacity hover:opacity-95 disabled:opacity-90"
+              className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full bg-navy text-sm font-semibold text-navy-foreground shadow-soft transition-opacity hover:opacity-95 disabled:opacity-90"
             >
-              {loading ? <SpinnerRing className="h-5 w-5" /> : <GoldRing className="h-5 w-5" />}
+              {loading && <SpinnerRing className="h-4 w-4" />}
               {loading ? "Signing in" : "Sign In"}
             </button>
           </form>
 
-          <div className="my-5 flex items-center gap-4">
+          <div className="my-4 flex items-center gap-4">
             <span className="h-px flex-1 bg-border" />
             <span className="text-xs text-muted-foreground">OR</span>
             <span className="h-px flex-1 bg-border" />
@@ -265,16 +297,17 @@ function LoginPage() {
                 message: "Telegram authentication is not connected yet.",
               })
             }
-            className="flex h-[54px] w-full items-center justify-center gap-3 rounded-full border border-telegram/70 bg-field text-[15px] font-semibold text-telegram transition-colors hover:border-telegram"
+            className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full border border-telegram/70 bg-field text-sm font-semibold text-telegram transition-colors hover:border-telegram"
           >
-            <TelegramIcon className="h-6 w-6" />
+            <TelegramIcon className="h-5 w-5" />
             Continue with Telegram
           </button>
 
-          <p className="mt-6 flex items-center justify-center gap-2 text-center text-[13px] text-muted-foreground">
-            <ShieldIcon className="h-4 w-4 shrink-0" />
+          <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
+            <ShieldIcon className="h-3.5 w-3.5 shrink-0" />
             Only authorized personnel can access this panel.
           </p>
+          </div>
         </section>
 
         <aside className="hidden flex-col items-end justify-between self-stretch py-4 lg:flex">
