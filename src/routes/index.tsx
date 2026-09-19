@@ -153,25 +153,58 @@ function LoginPage() {
           </div>
         </section>
 
-        <section className="w-full rounded-[26px] border border-glass-border bg-glass p-7 shadow-card backdrop-blur-2xl sm:p-10">
+        <section className="relative w-full overflow-hidden rounded-[26px] border border-glass-border bg-glass p-6 shadow-card backdrop-blur-2xl sm:p-8">
+          <svg
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 480 640"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <path
+              d="M-60 120C60 60 140 180 300 140S460 20 560 60"
+              fill="none"
+              stroke="var(--gold)"
+              strokeOpacity="0.22"
+              strokeWidth="1"
+            />
+            <path
+              d="M-60 560C80 500 200 640 360 590S520 470 580 520"
+              fill="none"
+              stroke="var(--gold)"
+              strokeOpacity="0.16"
+              strokeWidth="1"
+            />
+            <circle cx="430" cy="80" r="70" fill="none" stroke="var(--gold)" strokeOpacity="0.18" strokeWidth="1" />
+            <circle cx="40" cy="600" r="90" fill="var(--muted)" fillOpacity="0.35" />
+            <g fill="var(--gold)" fillOpacity="0.3">
+              {Array.from({ length: 3 }).flatMap((_, r) =>
+                Array.from({ length: 3 }).map((_, c) => (
+                  <circle key={`cd-${r}-${c}`} cx={400 + c * 12} cy={560 + r * 12} r="1.2" />
+                )),
+              )}
+            </g>
+          </svg>
+          <span className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
+
+          <div className="relative">
           <div className="flex flex-col items-center text-center">
-            <MintLoomMark className="h-14 w-14" />
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">MintLoom</h2>
-            <p className="mt-1 text-[15px] text-muted-foreground">Admin Panel</p>
+            <MintLoomMark className="h-11 w-11" />
+            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight">MintLoom</h2>
+            <p className="mt-0.5 text-sm text-muted-foreground">Admin Panel</p>
           </div>
 
-          <div className="mt-6 flex flex-col items-center">
+          <div className="mt-4 flex flex-col items-center">
             <div className="flex w-full items-center gap-4">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/70" />
-              <LockIcon className="h-4 w-4 text-foreground/70" />
+              <LockIcon className="h-3.5 w-3.5 text-foreground/70" />
               <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/70" />
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">Sign in to continue</p>
+            <p className="mt-1.5 text-[13px] text-muted-foreground">Sign in to continue</p>
           </div>
 
-          <form onSubmit={submit} className="mt-6 space-y-3.5" noValidate>
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-5 py-3.5 transition-colors focus-within:border-gold">
-              <MailIcon className="h-5 w-5 shrink-0 text-foreground/70" />
+          <form onSubmit={submit} className="mt-4 space-y-3" noValidate>
+            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
+              <MailIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
               <input
                 type="email"
                 value={email}
@@ -179,12 +212,12 @@ function LoginPage() {
                 placeholder="Email address"
                 autoComplete="email"
                 maxLength={255}
-                className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
+                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
             </div>
 
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-5 py-3.5 transition-colors focus-within:border-gold">
-              <LockIcon className="h-5 w-5 shrink-0 text-foreground/70" />
+            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
+              <LockIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
@@ -192,7 +225,7 @@ function LoginPage() {
                 placeholder="Password"
                 autoComplete="current-password"
                 maxLength={128}
-                className="w-full bg-transparent text-[15px] outline-none placeholder:text-muted-foreground"
+                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
               <button
                 type="button"
