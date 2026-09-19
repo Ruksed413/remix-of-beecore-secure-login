@@ -75,7 +75,7 @@ function LoginPage() {
       <Backdrop />
 
       <header className="fixed inset-x-0 top-0 z-20 border-b border-glass-border bg-glass/70 backdrop-blur-xl">
-        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-2 sm:px-6">
+        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
             <MintLoomMark className="h-6 w-6 shrink-0" />
             <span className="truncate text-base font-bold tracking-tight">MintLoom</span>
@@ -97,11 +97,11 @@ function LoginPage() {
                 role="switch"
                 aria-checked={theme === "dark"}
                 aria-label="Toggle dark mode"
-                className="relative h-6 w-11 rounded-full bg-gold transition-colors"
+                className="relative h-5 w-9 rounded-full bg-gold transition-colors"
               >
                 <span
-                  className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-soft transition-all duration-300 ${
-                    theme === "dark" ? "left-[22px]" : "left-0.5"
+                  className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow-soft transition-all duration-300 ${
+                    theme === "dark" ? "left-[18px]" : "left-0.5"
                   }`}
                 />
               </button>
@@ -117,7 +117,7 @@ function LoginPage() {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-5 pb-12 pt-24 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-28">
+      <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-5 pb-12 pt-28 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-32">
         <section className="hidden max-w-xs flex-col lg:flex">
           <span className="mb-6 block h-px w-8 bg-gold" />
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight">

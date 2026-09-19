@@ -101,10 +101,59 @@ export function TelegramIcon({ className = "h-6 w-6" }: P) {
 
 export function SpinnerRing({ className = "h-5 w-5" }: P) {
   return (
-    <span
-      className={`${className} inline-block animate-spin rounded-full border-2 border-gold/30 border-t-gold`}
+    <svg
+      viewBox="0 0 24 24"
+      className={`${className} animate-spin-smooth`}
       aria-hidden="true"
-    />
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeDasharray="16 56"
+        strokeLinecap="round"
+        className="text-gold"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeDasharray="16 56"
+        strokeDashoffset="-16"
+        strokeLinecap="round"
+        className="text-telegram"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeDasharray="16 56"
+        strokeDashoffset="-32"
+        strokeLinecap="round"
+        className="text-foreground/70"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeDasharray="16 56"
+        strokeDashoffset="-48"
+        strokeLinecap="round"
+        className="text-gold-soft"
+      />
+    </svg>
   );
 }
 
