@@ -8,7 +8,6 @@ import {
   EyeIcon,
   EyeOffIcon,
   GearIcon,
-  GoldRing,
   LockIcon,
   MailIcon,
   MoonIcon,
@@ -241,7 +240,7 @@ function LoginPage() {
               <button
                 type="button"
                 onClick={() => setRemember((v) => !v)}
-                className="flex items-center gap-2.5 text-sm text-foreground/80"
+                className="flex items-center gap-2.5 text-[13px] text-foreground/80"
                 role="checkbox"
                 aria-checked={remember}
               >
@@ -267,7 +266,7 @@ function LoginPage() {
                     message: "Password recovery isn't connected yet. Contact your administrator.",
                   })
                 }
-                className="text-sm font-medium text-gold"
+                className="text-[13px] font-medium text-gold"
               >
                 Forgot password?
               </button>
@@ -276,14 +275,14 @@ function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex h-[54px] w-full items-center justify-center gap-3 rounded-full bg-navy text-[15px] font-semibold text-navy-foreground shadow-soft transition-opacity hover:opacity-95 disabled:opacity-90"
+              className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full bg-navy text-sm font-semibold text-navy-foreground shadow-soft transition-opacity hover:opacity-95 disabled:opacity-90"
             >
-              {loading ? <SpinnerRing className="h-5 w-5" /> : <GoldRing className="h-5 w-5" />}
+              {loading && <SpinnerRing className="h-4 w-4" />}
               {loading ? "Signing in" : "Sign In"}
             </button>
           </form>
 
-          <div className="my-5 flex items-center gap-4">
+          <div className="my-4 flex items-center gap-4">
             <span className="h-px flex-1 bg-border" />
             <span className="text-xs text-muted-foreground">OR</span>
             <span className="h-px flex-1 bg-border" />
@@ -298,16 +297,17 @@ function LoginPage() {
                 message: "Telegram authentication is not connected yet.",
               })
             }
-            className="flex h-[54px] w-full items-center justify-center gap-3 rounded-full border border-telegram/70 bg-field text-[15px] font-semibold text-telegram transition-colors hover:border-telegram"
+            className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full border border-telegram/70 bg-field text-sm font-semibold text-telegram transition-colors hover:border-telegram"
           >
-            <TelegramIcon className="h-6 w-6" />
+            <TelegramIcon className="h-5 w-5" />
             Continue with Telegram
           </button>
 
-          <p className="mt-6 flex items-center justify-center gap-2 text-center text-[13px] text-muted-foreground">
-            <ShieldIcon className="h-4 w-4 shrink-0" />
+          <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
+            <ShieldIcon className="h-3.5 w-3.5 shrink-0" />
             Only authorized personnel can access this panel.
           </p>
+          </div>
         </section>
 
         <aside className="hidden flex-col items-end justify-between self-stretch py-4 lg:flex">
