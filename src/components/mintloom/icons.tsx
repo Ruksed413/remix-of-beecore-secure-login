@@ -104,18 +104,24 @@ export function SpinnerRing({ className = "h-5 w-5" }: P) {
     <svg
       viewBox="0 0 24 24"
       className={`${className} animate-spin-smooth`}
+      style={{ filter: "drop-shadow(0 0 3px color-mix(in oklab, var(--gold) 40%, transparent))" }}
       aria-hidden="true"
     >
+      <defs>
+        <linearGradient id="spinnerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="var(--gold)" />
+          <stop offset="100%" stopColor="var(--gold-soft)" />
+        </linearGradient>
+      </defs>
       <circle
         cx="12"
         cy="12"
         r="10"
         fill="none"
-        stroke="currentColor"
+        stroke="url(#spinnerGold)"
         strokeWidth="2.5"
-        strokeDasharray="16 56"
+        strokeDasharray="18 54"
         strokeLinecap="round"
-        className="text-gold"
       />
       <circle
         cx="12"
@@ -124,8 +130,8 @@ export function SpinnerRing({ className = "h-5 w-5" }: P) {
         fill="none"
         stroke="currentColor"
         strokeWidth="2.5"
-        strokeDasharray="16 56"
-        strokeDashoffset="-16"
+        strokeDasharray="14 58"
+        strokeDashoffset="-18"
         strokeLinecap="round"
         className="text-telegram"
       />
@@ -136,10 +142,10 @@ export function SpinnerRing({ className = "h-5 w-5" }: P) {
         fill="none"
         stroke="currentColor"
         strokeWidth="2.5"
-        strokeDasharray="16 56"
-        strokeDashoffset="-32"
+        strokeDasharray="12 60"
+        strokeDashoffset="-34"
         strokeLinecap="round"
-        className="text-foreground/70"
+        className="text-foreground/60"
       />
       <circle
         cx="12"
@@ -148,8 +154,8 @@ export function SpinnerRing({ className = "h-5 w-5" }: P) {
         fill="none"
         stroke="currentColor"
         strokeWidth="2.5"
-        strokeDasharray="16 56"
-        strokeDashoffset="-48"
+        strokeDasharray="10 62"
+        strokeDashoffset="-50"
         strokeLinecap="round"
         className="text-gold-soft"
       />
