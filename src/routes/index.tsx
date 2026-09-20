@@ -74,7 +74,10 @@ function LoginPage() {
     <div className="relative min-h-screen bg-background">
       <Backdrop />
 
-      <header className="fixed inset-x-0 top-0 z-20 border-b border-glass-border bg-glass/70 backdrop-blur-xl">
+      <header
+        className="animate-fade-in-up fixed inset-x-0 top-0 z-20 border-b border-glass-border bg-glass/70 backdrop-blur-xl"
+        style={{ animationDelay: "0ms" }}
+      >
         <div className="mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3">
           <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
             <MintLoomMark className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
@@ -91,13 +94,17 @@ function LoginPage() {
               <span>Grow</span>
             </nav>
             <div className="flex items-center gap-2.5">
-              <SunIcon className={`h-5 w-5 ${theme === "light" ? "text-foreground" : "text-muted-foreground"}`} />
+              <SunIcon
+                className={`h-5 w-5 transition-colors duration-200 ${
+                  theme === "light" ? "text-foreground" : "text-muted-foreground"
+                }`}
+              />
               <button
                 onClick={toggleTheme}
                 role="switch"
                 aria-checked={theme === "dark"}
                 aria-label="Toggle dark mode"
-                className="relative h-5 w-9 rounded-full bg-gold transition-colors"
+                className="relative h-5 w-9 rounded-full bg-gold transition-colors duration-300"
               >
                 <span
                   className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow-soft transition-all duration-300 ${
@@ -108,7 +115,7 @@ function LoginPage() {
               <button
                 onClick={() => setTheme("dark")}
                 aria-label="Use dark theme"
-                className={theme === "dark" ? "text-foreground" : "text-muted-foreground"}
+                className={`transition-colors duration-200 ${theme === "dark" ? "text-foreground" : "text-muted-foreground"}`}
               >
                 <MoonIcon />
               </button>
@@ -118,7 +125,10 @@ function LoginPage() {
       </header>
 
       <main className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-4 pb-10 pt-24 sm:px-5 sm:pt-28 lg:grid-cols-[1fr_minmax(0,480px)_1fr] lg:gap-6 lg:pb-16 lg:pt-32">
-        <section className="hidden max-w-xs flex-col lg:flex">
+        <section
+          className="animate-fade-in-up hidden max-w-xs flex-col lg:flex"
+          style={{ animationDelay: "80ms" }}
+        >
           <span className="mb-6 block h-px w-8 bg-gold" />
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight">
             Welcome
@@ -135,7 +145,7 @@ function LoginPage() {
               { icon: GearIcon, label: "Control & Configure" },
             ].map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-foreground/70">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-foreground/70 transition-colors duration-200 hover:text-foreground">
                   <Icon className="h-[18px] w-[18px]" />
                 </span>
                 <span className="text-sm font-medium">{label}</span>
@@ -152,7 +162,10 @@ function LoginPage() {
           </div>
         </section>
 
-        <section className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[22px] border border-glass-border bg-glass p-5 shadow-card backdrop-blur-2xl sm:max-w-[480px] sm:rounded-[26px] sm:p-8">
+        <section
+          className="animate-fade-in-scale relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[22px] border border-glass-border bg-glass p-5 shadow-card backdrop-blur-2xl transition-all duration-300 sm:max-w-[480px] sm:rounded-[26px] sm:p-8"
+          style={{ animationDelay: "40ms" }}
+        >
           <svg
             className="pointer-events-none absolute inset-0 h-full w-full"
             viewBox="0 0 480 640"
@@ -186,131 +199,157 @@ function LoginPage() {
           <span className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
 
           <div className="relative">
-          <div className="flex flex-col items-center text-center">
-            <MintLoomMark className="h-10 w-10 sm:h-11 sm:w-11" />
-            <h2 className="mt-2.5 text-xl font-extrabold tracking-tight sm:text-2xl">MintLoom</h2>
-            <p className="mt-0.5 text-sm text-muted-foreground">Admin Panel</p>
-          </div>
-
-          <div className="mt-4 flex flex-col items-center">
-            <div className="flex w-full items-center gap-4">
-              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/70" />
-              <LockIcon className="h-3.5 w-3.5 text-foreground/70" />
-              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/70" />
-            </div>
-            <p className="mt-1.5 text-[13px] text-muted-foreground">Sign in to continue</p>
-          </div>
-
-          <form onSubmit={submit} className="mt-4 space-y-3" noValidate>
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
-              <MailIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email address"
-                autoComplete="email"
-                maxLength={255}
-                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-              />
+            <div
+              className="flex flex-col items-center text-center"
+              style={{ animationDelay: "80ms" }}
+            >
+              <MintLoomMark className="h-10 w-10 sm:h-11 sm:w-11" />
+              <h2 className="mt-2.5 text-xl font-extrabold tracking-tight sm:text-2xl">MintLoom</h2>
+              <p className="mt-0.5 text-sm text-muted-foreground">Admin Panel</p>
             </div>
 
-            <div className="flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-colors focus-within:border-gold">
-              <LockIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                autoComplete="current-password"
-                maxLength={128}
-                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((v) => !v)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
-                className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
+            <div
+              className="mt-4 flex flex-col items-center"
+              style={{ animationDelay: "120ms" }}
+            >
+              <div className="flex w-full items-center gap-4">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/70" />
+                <LockIcon className="h-3.5 w-3.5 text-foreground/70" />
+                <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/70" />
+              </div>
+              <p className="mt-1.5 text-[13px] text-muted-foreground">Sign in to continue</p>
+            </div>
+
+            <form onSubmit={submit} className="mt-4 space-y-3" noValidate>
+              <div
+                className="animate-fade-in-up flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-all duration-200 focus-within:border-gold focus-within:ring-2 focus-within:ring-gold/15"
+                style={{ animationDelay: "160ms" }}
               >
-                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
-              </button>
-            </div>
+                <MailIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email address"
+                  autoComplete="email"
+                  maxLength={255}
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                />
+              </div>
 
-            <div className="flex items-center justify-between pt-1">
-              <button
-                type="button"
-                onClick={() => setRemember((v) => !v)}
-                className="flex items-center gap-2.5 text-[13px] text-foreground/80"
-                role="checkbox"
-                aria-checked={remember}
+              <div
+                className="animate-fade-in-up flex items-center gap-3 rounded-full border border-border bg-field px-4 py-2.5 transition-all duration-200 focus-within:border-gold focus-within:ring-2 focus-within:ring-gold/15"
+                style={{ animationDelay: "220ms" }}
               >
-                <span
-                  className={`flex h-[18px] w-[18px] items-center justify-center rounded-[6px] border transition-colors ${
-                    remember ? "border-gold bg-gold" : "border-border bg-field"
-                  }`}
+                <LockIcon className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  maxLength={128}
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((v) => !v)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="shrink-0 text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  {remember && (
-                    <svg viewBox="0 0 24 24" fill="none" className="h-3 w-3">
-                      <path d="m5 12.5 4.5 4.5L19 7" stroke="#fff" strokeWidth="2.8" strokeLinecap="round" />
-                    </svg>
-                  )}
-                </span>
-                Remember me
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  setModal({
-                    kind: "info",
-                    title: "Password reset",
-                    message: "Password recovery isn't connected yet. Contact your administrator.",
-                  })
-                }
-                className="text-[13px] font-medium text-gold"
+                  {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                </button>
+              </div>
+
+              <div
+                className="animate-fade-in-up flex items-center justify-between pt-1"
+                style={{ animationDelay: "280ms" }}
               >
-                Forgot password?
+                <button
+                  type="button"
+                  onClick={() => setRemember((v) => !v)}
+                  className="flex items-center gap-2.5 text-[13px] text-foreground/80 transition-colors duration-200 hover:text-foreground"
+                  role="checkbox"
+                  aria-checked={remember}
+                >
+                  <span
+                    className={`flex h-[18px] w-[18px] items-center justify-center rounded-[6px] border transition-all duration-200 ${
+                      remember ? "border-gold bg-gold" : "border-border bg-field"
+                    }`}
+                  >
+                    {remember && (
+                      <svg viewBox="0 0 24 24" fill="none" className="h-3 w-3">
+                        <path d="m5 12.5 4.5 4.5L19 7" stroke="#fff" strokeWidth="2.8" strokeLinecap="round" />
+                      </svg>
+                    )}
+                  </span>
+                  Remember me
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setModal({
+                      kind: "info",
+                      title: "Password reset",
+                      message: "Password recovery isn't connected yet. Contact your administrator.",
+                    })
+                  }
+                  className="text-[13px] font-medium text-gold transition-opacity duration-200 hover:opacity-80"
+                >
+                  Forgot password?
+                </button>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="animate-fade-in-up flex h-11 w-full items-center justify-center gap-2.5 rounded-full bg-navy text-sm font-semibold text-navy-foreground shadow-soft transition-all duration-200 hover:shadow-lg hover:opacity-95 active:scale-[0.98] disabled:opacity-90"
+                style={{ animationDelay: "340ms" }}
+              >
+                {loading && <SpinnerRing className="h-4 w-4" />}
+                {loading ? "Signing in" : "Sign In"}
               </button>
+            </form>
+
+            <div
+              className="animate-fade-in-up my-4 flex items-center gap-4"
+              style={{ animationDelay: "400ms" }}
+            >
+              <span className="h-px flex-1 bg-border" />
+              <span className="text-xs text-muted-foreground">OR</span>
+              <span className="h-px flex-1 bg-border" />
             </div>
 
             <button
-              type="submit"
-              disabled={loading}
-              className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full bg-navy text-sm font-semibold text-navy-foreground shadow-soft transition-opacity hover:opacity-95 disabled:opacity-90"
+              type="button"
+              onClick={() =>
+                setModal({
+                  kind: "info",
+                  title: "Telegram sign-in",
+                  message: "Telegram authentication is not connected yet.",
+                })
+              }
+              className="animate-fade-in-up flex h-11 w-full items-center justify-center gap-2.5 rounded-full border border-telegram/70 bg-field text-sm font-semibold text-telegram transition-all duration-200 hover:border-telegram hover:bg-telegram/5 active:scale-[0.98]"
+              style={{ animationDelay: "460ms" }}
             >
-              {loading && <SpinnerRing className="h-4 w-4" />}
-              {loading ? "Signing in" : "Sign In"}
+              <TelegramIcon className="h-5 w-5" />
+              Continue with Telegram
             </button>
-          </form>
 
-          <div className="my-4 flex items-center gap-4">
-            <span className="h-px flex-1 bg-border" />
-            <span className="text-xs text-muted-foreground">OR</span>
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          <button
-            type="button"
-            onClick={() =>
-              setModal({
-                kind: "info",
-                title: "Telegram sign-in",
-                message: "Telegram authentication is not connected yet.",
-              })
-            }
-            className="flex h-11 w-full items-center justify-center gap-2.5 rounded-full border border-telegram/70 bg-field text-sm font-semibold text-telegram transition-colors hover:border-telegram"
-          >
-            <TelegramIcon className="h-5 w-5" />
-            Continue with Telegram
-          </button>
-
-          <p className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground">
-            <ShieldIcon className="h-3.5 w-3.5 shrink-0" />
-            Only authorized personnel can access this panel.
-          </p>
+            <p
+              className="animate-fade-in-up mt-4 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground"
+              style={{ animationDelay: "520ms" }}
+            >
+              <ShieldIcon className="h-3.5 w-3.5 shrink-0" />
+              Only authorized personnel can access this panel.
+            </p>
           </div>
         </section>
 
-        <aside className="hidden flex-col items-end justify-between self-stretch py-4 lg:flex">
+        <aside
+          className="animate-fade-in-up hidden flex-col items-end justify-between self-stretch py-4 lg:flex"
+          style={{ animationDelay: "120ms" }}
+        >
           <div className="text-right">
             <span className="mb-3 ml-auto block h-px w-6 bg-gold" />
             <p className="text-[11px] font-medium leading-6 tracking-[0.22em] text-muted-foreground">
