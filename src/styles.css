@@ -188,3 +188,29 @@
   backdrop-filter: blur(24px) saturate(140%);
   border: 1px solid var(--glass-border);
 }
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-fade-in-scale {
+  animation: fade-in-scale 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-drift-slow {
+  animation: drift-slow 20s ease-in-out infinite;
+}
+
+@utility animate-drift-slow-reverse {
+  animation: drift-slow-reverse 24s ease-in-out infinite;
+}
+
+@utility animate-pulse-soft {
+  animation: pulse-soft 6s ease-in-out infinite;
+}
+
+@utility transition-theme {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
