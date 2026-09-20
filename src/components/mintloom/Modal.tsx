@@ -41,7 +41,7 @@ export function Modal({ state, onClose }: { state: ModalState; onClose: () => vo
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-foreground/15 px-5 backdrop-blur-sm transition-opacity duration-250 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-foreground/15 px-5 backdrop-blur-sm transition-opacity duration-200 ${
         show ? "opacity-100" : "opacity-0"
       }`}
       onClick={onClose}
@@ -50,7 +50,7 @@ export function Modal({ state, onClose }: { state: ModalState; onClose: () => vo
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`w-full max-w-xs rounded-2xl border border-border/70 bg-card p-6 text-center shadow-card transition-all duration-250 ${
+        className={`w-full max-w-xs rounded-2xl border border-border/70 bg-card p-6 text-center shadow-card transition-all duration-200 ${
           show ? "translate-y-0 scale-100 opacity-100" : "translate-y-2 scale-[0.98] opacity-0"
         }`}
       >
